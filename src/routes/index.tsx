@@ -21,7 +21,7 @@ export default component$(() => {
 
   return (
     <>
-      <div class="flex flex-col items-center">
+      <div class="mt-12 flex flex-col items-center">
         <input bind:value={query} class="m-4 border bg-gray-500" />
         <Resource
           value={request}
