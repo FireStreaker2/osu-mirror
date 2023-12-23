@@ -1,2 +1,3 @@
 # osu-mirror
- Simple mirror for osu made with qwik
+
+Simple mirror for osu made with qwik

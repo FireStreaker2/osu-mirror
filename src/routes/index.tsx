@@ -2,7 +2,7 @@ import {
   Resource,
   component$,
   useResource$,
-  useSignal
+  useSignal,
 } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
 
@@ -13,7 +13,7 @@ export default component$(() => {
     track(() => query.value);
 
     const response = await fetch(
-      `https://api.chimu.moe/v1/search?status=1&size=40&query=${query.value}&offset=0`
+      `https://api.chimu.moe/v1/search?status=1&size=40&query=${query.value}&offset=0`,
     );
     const data = await response.json();
     return data;
@@ -49,7 +49,7 @@ export const head: DocumentHead = {
   meta: [
     {
       name: "description",
-      content: "Simple mirror for osu made with qwik"
-    }
-  ]
+      content: "Simple mirror for osu made with qwik",
+    },
+  ],
 };
