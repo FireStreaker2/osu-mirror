@@ -109,7 +109,7 @@ export default component$(() => {
                   <Link href={`/set/${map.SetId}`} class="border text-center">
                     <div class="flex justify-center">
                       <img
-                        src={`https://assets.ppy.sh/beatmaps/${map.SetId}/covers/card.jpg`}
+                        src={`/api/image/${map.SetId}`}
                         width={200}
                         height={70}
                       />
@@ -123,7 +123,7 @@ export default component$(() => {
                   </Link>
                   <Link
                     class="w-full border text-center"
-                    href={`https://api.chimu.moe/v1/download/${map.SetId}`}
+                    href={`/api/download/${map.SetId}`}
                     target="_blank"
                   >
                     Download
