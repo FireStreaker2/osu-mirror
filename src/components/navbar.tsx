@@ -9,7 +9,12 @@ export const Navbar = component$(() => {
       </div>
       <div class="flex h-full w-1/3 items-center justify-around">
         <Link href="/">Home</Link>
-        <Link href="https://github.com/FireStreaker2/osu-mirror">GitHub</Link>
+        <Link
+          href="https://github.com/FireStreaker2/osu-mirror"
+          target="_blank"
+        >
+          GitHub
+        </Link>
         <Link href="/about">About</Link>
         <Link href="/support">Support</Link>
       </div>
