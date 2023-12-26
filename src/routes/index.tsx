@@ -109,7 +109,7 @@ export default component$(() => {
                   <Link href={`/set/${map.SetId}`} class="border text-center">
                     <div class="flex justify-center">
                       <img
-                        src={`/api/image/${map.SetId}`}
+                        src={`/api/image/card/${map.SetId}`}
                         width={200}
                         height={70}
                       />
@@ -123,7 +123,7 @@ export default component$(() => {
                   </Link>
                   <Link
                     class="w-full border text-center"
-                    href={`/api/download/${map.SetId}`}
+                    href={`/api/download/${map.SetId}?name=${map.Title}`}
                     target="_blank"
                   >
                     Download
