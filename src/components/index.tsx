@@ -1,4 +1,5 @@
-import { RouterHead } from "./router-head";
+import { Error } from "./error";
 import { Navbar } from "./navbar";
+import { RouterHead } from "./router-head";
 
-export { RouterHead, Navbar };
+export { Error, Navbar, RouterHead };

@@ -66,10 +66,12 @@ export default component$(() => {
               <h1>Status</h1>
               <select
                 value={query.status}
-                onChange$={(event) => {
-                  const target = event.target as HTMLSelectElement;
-                  query.status = parseInt(target.value, 10);
-                }}
+                onChange$={(event) =>
+                  (query.status = parseInt(
+                    (event.target as HTMLSelectElement).value,
+                    10,
+                  ))
+                }
               >
                 <option value={727}>All</option>
                 <option value={1}>Ranked</option>
@@ -85,10 +87,12 @@ export default component$(() => {
               <h1>Mode</h1>
               <select
                 value={query.mode}
-                onChange$={(event) => {
-                  const target = event.target as HTMLSelectElement;
-                  query.mode = parseInt(target.value, 10);
-                }}
+                onChange$={(event) =>
+                  (query.status = parseInt(
+                    (event.target as HTMLSelectElement).value,
+                    10,
+                  ))
+                }
               >
                 <option value={727}>All</option>
                 <option value={0}>Standard</option>
@@ -110,6 +114,7 @@ export default component$(() => {
                     <div class="flex justify-center">
                       <img
                         src={`/api/image/card/${map.SetId}`}
+                        class="h-20 w-auto"
                         width={200}
                         height={70}
                       />
