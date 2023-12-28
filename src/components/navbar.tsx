@@ -3,7 +3,7 @@ import { Link } from "@builder.io/qwik-city";
 
 export const Navbar = component$(() => {
   return (
-    <div class="fixed top-0 flex h-12 w-full flex-row justify-around bg-gray-400">
+    <div class="fixed top-0 flex h-12 w-full flex-row justify-around bg-blue-500 z-20">
       <div class="flex h-full w-1/3 items-center justify-center">
         <Link href="/">osu! mirror</Link>
       </div>

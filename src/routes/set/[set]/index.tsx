@@ -26,6 +26,8 @@ export default component$(() => {
       `https://api.chimu.moe/v1/set/${location.params.set}`,
     );
 
+    difficulty.value = set.value.ChildrenBeatmaps[0];
+
     if (set.value.ChildrenBeatmaps.length <= 0) error.value = true;
   });
 
@@ -48,7 +50,7 @@ export default component$(() => {
   });
 
   return (
-    <div class="mt-12 flex flex-col items-center bg-gray-500">
+    <div class="mt-12 flex flex-col items-center bg-blue-100">
       <img
         src={`/api/image/cover/${set.value.SetId}`}
         class="h-full w-auto"
@@ -56,13 +58,13 @@ export default component$(() => {
         height={700}
       />
       <select
-        value={difficulty.value.DiffName}
-        onChange$={(event) => {
-          difficulty.value = set.value.ChildrenBeatmaps.find(
+        onChange$={(event) =>
+          (difficulty.value = set.value.ChildrenBeatmaps.find(
             (map: any) =>
-              map.BeatmapId === (event.target as HTMLSelectElement).value,
-          );
-        }}
+              map.BeatmapId ===
+              parseInt((event.target as HTMLSelectElement).value, 10),
+          ))
+        }
       >
         {set.value.ChildrenBeatmaps &&
           set.value.ChildrenBeatmaps.map((map: any, index: number) => (
@@ -72,12 +74,27 @@ export default component$(() => {
           ))}
       </select>
 
-      <button onClick$={play}>{playing.value ? "stop" : "start"}</button>
+      <button onClick$={play} class="w-1/5 bg-blue-400 text-blue-950">
+        {playing.value ? "stop" : "start"}
+      </button>
 
       <audio ref={audioElement} onEnded$={() => (playing.value = false)}>
         <source src={`/api/audio/${set.value.SetId}`} type="audio/mp3" />
         your browser doesnt support the audio element
       </audio>
+
+      <div class="bg-blue-200">
+        <h1>{difficulty.value.DiffName}</h1>
+        <p>Difficulty: {difficulty.value.DifficultyRating}</p>
+        <div>
+          <p>BPM: {difficulty.value.BPM}</p>
+          <p>AR: {difficulty.value.AR}</p>
+          <p>OD: {difficulty.value.OD}</p>
+          <p>CS: {difficulty.value.CS}</p>
+          <p>HP: {difficulty.value.HP}</p>
+          <p>Length: {difficulty.value.TotalLength}</p>
+        </div>
+      </div>
     </div>
   );
 });

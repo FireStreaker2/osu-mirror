@@ -39,19 +39,19 @@ export default component$(() => {
   });
 
   return (
-    <div class="flex h-full w-full justify-center">
-      <div class="mt-24 flex w-2/3 flex-col items-center">
-        <div class="w-full bg-gray-300">
+    <div class="flex h-full w-full justify-center bg-blue-100">
+      <div class="mt-24 flex w-2/3 flex-col items-center bg-blue-200">
+        <div class="w-full bg-blue-300">
           <div class="flex items-center justify-around">
             <input
               value={query.search}
               onChange$={(_, element) => (query.search = element.value)}
-              class="m-4 w-2/3 border bg-gray-500"
+              class="m-4 w-2/3 border bg-blue-500"
               placeholder="keywords"
             />
 
             <button
-              class="w-1/5 bg-slate-500"
+              class="w-1/5 bg-blue-400 text-blue-950"
               onClick$={() => (dropdownState.value = !dropdownState.value)}
             >
               Advanced
@@ -109,8 +109,14 @@ export default component$(() => {
           onResolved={(maps) => (
             <div class="flex flex-row flex-wrap justify-center">
               {maps.data.map((map: any, index: number) => (
-                <div key={index} class="m-4 flex h-40 w-1/3 flex-col">
-                  <Link href={`/set/${map.SetId}`} class="border text-center">
+                <div
+                  key={index}
+                  class="m-4 flex h-40 w-1/3 flex-col bg-blue-300"
+                >
+                  <Link
+                    href={`/set/${map.SetId}`}
+                    class="relative line-clamp-2 h-full overflow-hidden text-ellipsis border text-center"
+                  >
                     <div class="flex justify-center">
                       <img
                         src={`/api/image/card/${map.SetId}`}
@@ -119,20 +125,19 @@ export default component$(() => {
                         height={70}
                       />
                     </div>
-                    <div>
-                      <h1>
-                        {map.Title} - {map.Artist} ({map.Creator})
-                      </h1>
-                      <p>{map.SetId}</p>
-                    </div>
+                    <h1>
+                      {map.Title} - {map.Artist} ({map.Creator})
+                    </h1>
                   </Link>
-                  <Link
-                    class="w-full border text-center"
-                    href={`/api/download/${map.SetId}?name=${map.Title}`}
-                    target="_blank"
-                  >
-                    Download
-                  </Link>
+                  <div class="flex items-center">
+                    <Link
+                      class="w-full border text-center"
+                      href={`/api/download/${map.SetId}?name=${map.Title}`}
+                      target="_blank"
+                    >
+                      Download
+                    </Link>
+                  </div>
                 </div>
               ))}
             </div>
