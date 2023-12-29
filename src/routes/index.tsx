@@ -6,6 +6,13 @@ import {
   useStore,
 } from "@builder.io/qwik";
 import { server$, type DocumentHead, Link } from "@builder.io/qwik-city";
+import {
+  IoChevronDown,
+  IoDownloadSolid,
+  IoSearchSolid,
+  IoShareSolid,
+} from "@qwikest/icons/ionicons";
+import { FaShareSolid } from "@qwikest/icons/font-awesome";
 
 const search = server$(async (query: string) => {
   const response = await fetch(`https://api.chimu.moe/v1/search${query}`);
@@ -42,19 +49,26 @@ export default component$(() => {
     <div class="flex h-full w-full justify-center bg-blue-100">
       <div class="mt-24 flex w-2/3 flex-col items-center bg-blue-200">
         <div class="w-full bg-blue-300">
-          <div class="flex items-center justify-around">
-            <input
-              value={query.search}
-              onChange$={(_, element) => (query.search = element.value)}
-              class="m-4 w-2/3 border bg-blue-500"
-              placeholder="keywords"
-            />
+          <div class="flex items-center">
+            <form preventdefault:submit class="flex flex-grow">
+              <div class="relative flex w-2/3 items-center justify-center">
+                <input
+                  value={query.search}
+                  onChange$={(_, element) => (query.search = element.value)}
+                  class="m-4 w-full border bg-blue-500 p-1 placeholder-blue-200"
+                  placeholder="Keywords"
+                />
+                <button class="absolute right-5">
+                  <IoSearchSolid />
+                </button>
+              </div>
+            </form>
 
             <button
-              class="w-1/5 bg-blue-400 text-blue-950"
+              class="mr-8 flex w-1/5 flex-row items-center justify-center bg-blue-400 text-blue-950 hover:bg-blue-500 active:bg-blue-400"
               onClick$={() => (dropdownState.value = !dropdownState.value)}
             >
-              Advanced
+              Advanced <IoChevronDown />
             </button>
           </div>
           <div
@@ -111,7 +125,7 @@ export default component$(() => {
               {maps.data.map((map: any, index: number) => (
                 <div
                   key={index}
-                  class="m-4 flex h-40 w-1/3 flex-col bg-blue-300"
+                  class="m-4 flex h-44 w-1/3 flex-col bg-blue-300"
                 >
                   <Link
                     href={`/set/${map.SetId}`}
@@ -129,13 +143,31 @@ export default component$(() => {
                       {map.Title} - {map.Artist} ({map.Creator})
                     </h1>
                   </Link>
-                  <div class="flex items-center">
+                  <div class="flex h-14 items-center justify-around border">
                     <Link
-                      class="w-full border text-center"
                       href={`/api/download/${map.SetId}?name=${map.Title}`}
                       target="_blank"
+                      title="Download Map"
+                      class="hover:text-blue-600 active:text-blue-400"
                     >
-                      Download
+                      <IoDownloadSolid />
+                    </Link>
+
+                    <Link
+                      href={`osu://b/${map.SetId}`}
+                      title="osu! direct"
+                      class="hover:text-blue-600 active:text-blue-400"
+                    >
+                      <IoShareSolid />
+                    </Link>
+
+                    <Link
+                      href={`https://osu.ppy.sh/beatmapsets/${map.SetId}`}
+                      target="_blank"
+                      title="Original"
+                      class="hover:text-blue-600 active:text-blue-400"
+                    >
+                      <FaShareSolid />
                     </Link>
                   </div>
                 </div>
