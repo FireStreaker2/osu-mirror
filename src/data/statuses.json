@@ -1,0 +1,34 @@
+[
+  {
+    "value": 727,
+    "name": "All"
+  },
+  {
+    "value": 1,
+    "name": "Ranked"
+  },
+  {
+    "value": 2,
+    "name": "Approved"
+  },
+  {
+    "value": 3,
+    "name": "Qualified"
+  },
+  {
+    "value": 4,
+    "name": "Loved"
+  },
+  {
+    "value": 0,
+    "name": "Pending"
+  },
+  {
+    "value": -1,
+    "name": "WIP"
+  },
+  {
+    "value": -2,
+    "name": "Graveyard"
+  }
+]

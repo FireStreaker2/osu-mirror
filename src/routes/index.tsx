@@ -13,6 +13,7 @@ import {
   IoShareSolid,
 } from "@qwikest/icons/ionicons";
 import { FaShareSolid } from "@qwikest/icons/font-awesome";
+import { modes, statuses } from "~/data";
 
 const search = server$(async (query: string) => {
   const response = await fetch(`https://api.chimu.moe/v1/search${query}`);
@@ -33,6 +34,7 @@ export default component$(() => {
     status: 727,
     mode: 727,
   });
+  
   const dropdownState = useSignal(false);
 
   const request = useResource$(async ({ track }) => {
@@ -87,14 +89,11 @@ export default component$(() => {
                   ))
                 }
               >
-                <option value={727}>All</option>
-                <option value={1}>Ranked</option>
-                <option value={2}>Approved</option>
-                <option value={3}>Qualified</option>
-                <option value={4}>Loved</option>
-                <option value={0}>Pending</option>
-                <option value={-1}>WIP</option>
-                <option value={-2}>Graveyard</option>
+                {statuses.map((status, index) => (
+                  <option key={index} value={status.value}>
+                    {status.name}
+                  </option>
+                ))}
               </select>
             </div>
             <div>
@@ -108,11 +107,11 @@ export default component$(() => {
                   ))
                 }
               >
-                <option value={727}>All</option>
-                <option value={0}>Standard</option>
-                <option value={1}>Taiko</option>
-                <option value={2}>Catch</option>
-                <option value={3}>Mania</option>
+                {modes.map((mode, index) => (
+                  <option key={index} value={mode.value}>
+                    {mode.name}
+                  </option>
+                ))}
               </select>
             </div>
           </div>

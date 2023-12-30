@@ -1,0 +1,19 @@
+[
+  {
+    "value": 727,
+    "name": "All"
+  },
+  {
+    "value": 0,
+    "name": "Standard"
+  },
+  { "value": 1, "name": "Taiko" },
+  {
+    "value": 2,
+    "name": "Catch"
+  },
+  {
+    "value": 3,
+    "name": "Mania"
+  }
+]
