@@ -1,0 +1,56 @@
+[
+  {
+    "value": 0,
+    "name": "Standard"
+  },
+  { "value": 1, "name": "Unspecified" },
+  {
+    "value": 2,
+    "name": "English"
+  },
+  {
+    "value": 3,
+    "name": "Japanese"
+  },
+  {
+    "value": 4,
+    "name": "Chinese"
+  },
+  {
+    "value": 5,
+    "name": "Instrumental"
+  },
+  { "value": 6, "name": "Korean" },
+  {
+    "value": 7,
+    "name": "French"
+  },
+  {
+    "value": 8,
+    "name": "German"
+  },
+  {
+    "value": 9,
+    "name": "Swedish"
+  },
+  {
+    "value": 10,
+    "name": "Spanish"
+  },
+  {
+    "value": 11,
+    "name": "Italian"
+  },
+  {
+    "value": 12,
+    "name": "Russian"
+  },
+  {
+    "value": 13,
+    "name": "Polish"
+  },
+  {
+    "value": 14,
+    "name": "Other"
+  }
+]

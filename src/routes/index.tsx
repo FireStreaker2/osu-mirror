@@ -34,7 +34,7 @@ export default component$(() => {
     status: 727,
     mode: 727,
   });
-  
+
   const dropdownState = useSignal(false);
 
   const request = useResource$(async ({ track }) => {
@@ -101,7 +101,7 @@ export default component$(() => {
               <select
                 value={query.mode}
                 onChange$={(event) =>
-                  (query.status = parseInt(
+                  (query.mode = parseInt(
                     (event.target as HTMLSelectElement).value,
                     10,
                   ))
@@ -124,7 +124,7 @@ export default component$(() => {
               {maps.data.map((map: any, index: number) => (
                 <div
                   key={index}
-                  class="m-4 flex h-44 w-1/3 flex-col bg-blue-300"
+                  class="m-4 flex h-44 w-1/3 scale-100 transform flex-col bg-blue-300 duration-300 hover:scale-110"
                 >
                   <Link
                     href={`/set/${map.SetId}`}

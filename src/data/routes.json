@@ -1,0 +1,10 @@
+[
+  { "route": "/", "name": "Home" },
+  {
+    "route": "https://github.com/FireStreaker2/osu-mirror",
+    "name": "GitHub",
+    "newtab": true
+  },
+  { "route": "/about/", "name": "About" },
+  { "route": "/support/", "name": "Support" }
+]

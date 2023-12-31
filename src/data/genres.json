@@ -1,0 +1,54 @@
+[
+  {
+    "value": 1,
+    "name": "Unspecified"
+  },
+  {
+    "value": 2,
+    "name": "Video Game"
+  },
+  {
+    "value": 3,
+    "name": "Anime"
+  },
+  {
+    "value": 4,
+    "name": "Rock"
+  },
+  {
+    "value": 5,
+    "name": "Pop"
+  },
+  {
+    "value": 6,
+    "name": "Other"
+  },
+  {
+    "value": 7,
+    "name": "Novelty"
+  },
+  {
+    "value": 8,
+    "name": "Hip Hop"
+  },
+  {
+    "value": 9,
+    "name": "Electronic"
+  },
+  {
+    "value": 10,
+    "name": "Metal"
+  },
+  {
+    "value": 11,
+    "name": "Classical"
+  },
+  {
+    "value": 12,
+    "name": "Folk"
+  },
+  {
+    "value": 13,
+    "name": "Jazz"
+  }
+]

@@ -13,6 +13,7 @@ import {
 } from "@qwikest/icons/font-awesome";
 import { IoDownloadSolid, IoShareSolid } from "@qwikest/icons/ionicons";
 import { Error } from "~/components";
+import { genres, languages, modes, statuses } from "~/data";
 
 const search = server$(async (url: string) => {
   const response = await fetch(url);
@@ -59,7 +60,7 @@ export default component$(() => {
   return (
     <div class="flex h-full w-full justify-center bg-blue-100">
       <div class="mt-24 flex w-2/3 flex-col items-center bg-blue-200">
-        <div class="relative flex h-96  w-full flex-row border">
+        <div class="relative flex h-96  w-full flex-row">
           <div class="z-10 flex flex-grow flex-col justify-center gap-8 bg-blue-950 bg-opacity-50">
             <div class="ml-8 text-blue-50">
               <h1 class="text-4xl">{set.value.Title}</h1>
@@ -102,7 +103,7 @@ export default component$(() => {
             width={2000}
             height={700}
           />
-          <div class="z-10 flex w-48 flex-col items-center justify-center gap-2 bg-blue-200">
+          <div class="z-10 flex w-48 flex-col items-center justify-center gap-2 border bg-blue-200">
             <div class="text-center">
               <h1 class="text-4xl">Info</h1>
             </div>
@@ -144,35 +145,60 @@ export default component$(() => {
                 <p>CS: {difficulty.value.CS}</p>
                 <p>HP: {difficulty.value.HP}</p>
                 <p>Length: {difficulty.value.TotalLength}</p>
+                <p>
+                  Mode:{" "}
+                  {
+                    modes.find((mode) => mode.value === difficulty.value.Mode)
+                      ?.name
+                  }
+                </p>
               </div>
             </div>
           </div>
         </div>
         <div class="flex h-72 w-full flex-row gap-8 border p-4">
-          <div class="w-1/3">
+          <div
+            class={`w-1/3 ${
+              set.value.Tags && "overflow-scroll"
+            } overflow-x-hidden`}
+          >
             <h1 class="whitespace-nowrap text-2xl">Tags</h1>
-            <p>{set.value.Tags}</p>
+            <p>{set.value.Tags || "None"}</p>
           </div>
           <div class="flex flex-row flex-wrap gap-8">
             <div>
-              <h1 class="whitespace-nowrap text-2xl">Last Update</h1>
-              <p>{set.value.LastUpdate}</p>
+              <h1 class="whitespace-nowrap text-2xl">Last Update</h1>{" "}
+              <p>{new Date(set.value.LastUpdate).toDateString()}</p>
             </div>
             <div>
               <h1 class="whitespace-nowrap text-2xl">Last Checked</h1>
-              <p>{set.value.LastChecked}</p>
+              <p>{new Date(set.value.LastChecked).toDateString()}</p>
             </div>
             <div>
               <h1 class="whitespace-nowrap text-2xl">Status</h1>
-              <p>{set.value.RankedStatus}</p>
+              <p>
+                {
+                  statuses.find(
+                    (status) => status.value === set.value.RankedStatus,
+                  )?.name
+                }
+              </p>
             </div>
             <div>
               <h1 class="whitespace-nowrap text-2xl">Genre</h1>
-              <p>{set.value.Genre}</p>
+              <p>
+                {genres.find((genre) => genre.value === set.value.Genre)?.name}
+              </p>
             </div>
             <div>
               <h1 class="whitespace-nowrap text-2xl">Language</h1>
-              <p>{set.value.Language}</p>
+              <p>
+                {
+                  languages.find(
+                    (language) => language.value === set.value.Language,
+                  )?.name
+                }
+              </p>
             </div>
           </div>
         </div>

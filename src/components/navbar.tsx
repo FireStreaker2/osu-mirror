@@ -1,26 +1,10 @@
 import { component$ } from "@builder.io/qwik";
 import { Link, useLocation } from "@builder.io/qwik-city";
 import { FaMusicSolid } from "@qwikest/icons/font-awesome";
-
-interface Route {
-  route: string;
-  name: string;
-  newtab?: boolean;
-}
+import { routes } from "~/data";
 
 export const Navbar = component$(() => {
   const location = useLocation();
-
-  const routes: Route[] = [
-    { route: "/", name: "Home" },
-    {
-      route: "https://github.com/FireStreaker2/osu-mirror",
-      name: "GitHub",
-      newtab: true,
-    },
-    { route: "/about/", name: "About" },
-    { route: "/support/", name: "Support" },
-  ];
 
   return (
     <div class="fixed top-0 z-20 flex h-12 w-full flex-row justify-around bg-blue-500">
@@ -36,7 +20,9 @@ export const Navbar = component$(() => {
             key={index}
             href={route.route}
             target={route.newtab ? "_blank" : ""}
-            class={`${location.url.pathname === route.route && "font-bold"}`}
+            class={`${
+              location.url.pathname === route.route && "font-bold"
+            } hover:text-blue-900`}
           >
             {route.name}
           </Link>
