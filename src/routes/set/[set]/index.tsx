@@ -1,7 +1,6 @@
 import { component$, useSignal, useTask$, $, useStore } from "@builder.io/qwik";
 import {
   type DocumentHead,
-  server$,
   useLocation,
   routeLoader$,
   Link,
@@ -12,15 +11,9 @@ import {
   FaShareSolid,
 } from "@qwikest/icons/font-awesome";
 import { IoDownloadSolid, IoShareSolid } from "@qwikest/icons/ionicons";
-import { Error } from "~/components";
+import { Error } from "~/components/ui";
+import { search } from "~/components/hooks";
 import { genres, languages, modes, statuses } from "~/data";
-
-const search = server$(async (url: string) => {
-  const response = await fetch(url);
-  const data = await response.json();
-
-  return data;
-});
 
 export default component$(() => {
   const location = useLocation();

@@ -5,22 +5,11 @@ import {
   useSignal,
   useStore,
 } from "@builder.io/qwik";
-import { server$, type DocumentHead, Link } from "@builder.io/qwik-city";
-import {
-  IoChevronDown,
-  IoDownloadSolid,
-  IoSearchSolid,
-  IoShareSolid,
-} from "@qwikest/icons/ionicons";
-import { FaShareSolid } from "@qwikest/icons/font-awesome";
+import { type DocumentHead } from "@builder.io/qwik-city";
+import { IoChevronDown, IoSearchSolid } from "@qwikest/icons/ionicons";
+import { Set } from "~/components/ui";
+import { search } from "~/components/hooks";
 import { modes, statuses } from "~/data";
-
-const search = server$(async (query: string) => {
-  const response = await fetch(`https://api.chimu.moe/v1/search${query}`);
-  const data = await response.json();
-
-  return data;
-});
 
 interface Query {
   search: string;
@@ -41,9 +30,11 @@ export default component$(() => {
     track(query);
 
     return search(
-      `?status=${query.status !== 727 ? query.status : ""}&size=40&query=${
-        query.search
-      }&offset=0&mode=${query.mode !== 727 ? query.mode : ""}`,
+      `https://api.chimu.moe/v1/search?status=${
+        query.status !== 727 ? query.status : ""
+      }&size=40&query=${query.search}&offset=0&mode=${
+        query.mode !== 727 ? query.mode : ""
+      }`,
     );
   });
 
@@ -122,54 +113,7 @@ export default component$(() => {
           onResolved={(maps) => (
             <div class="flex flex-row flex-wrap justify-center">
               {maps.data.map((map: any, index: number) => (
-                <div
-                  key={index}
-                  class="m-4 flex h-44 w-1/3 scale-100 transform flex-col bg-blue-300 duration-300 hover:scale-110"
-                >
-                  <Link
-                    href={`/set/${map.SetId}`}
-                    class="relative line-clamp-2 h-full overflow-hidden text-ellipsis border text-center"
-                  >
-                    <div class="flex justify-center">
-                      <img
-                        src={`/api/image/card/${map.SetId}`}
-                        class="h-20 w-auto"
-                        width={200}
-                        height={70}
-                      />
-                    </div>
-                    <h1>
-                      {map.Title} - {map.Artist} ({map.Creator})
-                    </h1>
-                  </Link>
-                  <div class="flex h-14 items-center justify-around border">
-                    <Link
-                      href={`/api/download/${map.SetId}?name=${map.Title}`}
-                      target="_blank"
-                      title="Download Map"
-                      class="hover:text-blue-600 active:text-blue-400"
-                    >
-                      <IoDownloadSolid />
-                    </Link>
-
-                    <Link
-                      href={`osu://b/${map.SetId}`}
-                      title="osu! direct"
-                      class="hover:text-blue-600 active:text-blue-400"
-                    >
-                      <IoShareSolid />
-                    </Link>
-
-                    <Link
-                      href={`https://osu.ppy.sh/beatmapsets/${map.SetId}`}
-                      target="_blank"
-                      title="Original"
-                      class="hover:text-blue-600 active:text-blue-400"
-                    >
-                      <FaShareSolid />
-                    </Link>
-                  </div>
-                </div>
+                <Set map={map} key={index} />
               ))}
             </div>
           )}

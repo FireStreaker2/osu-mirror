@@ -4,7 +4,7 @@ import {
   RouterOutlet,
   ServiceWorkerRegister,
 } from "@builder.io/qwik-city";
-import { Navbar, RouterHead } from "./components";
+import { Navbar, RouterHead } from "./components/ui";
 
 import "./global.css";
 
