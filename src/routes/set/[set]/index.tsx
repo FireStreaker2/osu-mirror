@@ -51,7 +51,7 @@ export default component$(() => {
   });
 
   return (
-    <div class="flex h-full w-full justify-center bg-blue-100">
+    <div class="flex h-full w-full justify-center">
       <div class="mt-24 flex w-2/3 flex-col items-center bg-blue-200">
         <div class="relative flex h-96  w-full flex-row">
           <div class="z-10 flex flex-grow flex-col justify-center gap-8 bg-blue-950 bg-opacity-50">
@@ -111,8 +111,8 @@ export default component$(() => {
               }
             >
               {set.value.ChildrenBeatmaps &&
-                set.value.ChildrenBeatmaps.map((map: any, index: number) => (
-                  <option key={index} value={map.BeatmapId}>
+                set.value.ChildrenBeatmaps.map((map: any) => (
+                  <option key={map.BeatmapId} value={map.BeatmapId}>
                     {map.DiffName}
                   </option>
                 ))}

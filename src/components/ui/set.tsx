@@ -7,7 +7,7 @@ import {
 } from "@qwikest/icons/font-awesome";
 import { IoDownloadSolid, IoShareSolid } from "@qwikest/icons/ionicons";
 
-export const Set = component$(({ map }: { map: any }) => {
+export const Set = component$(({ map }) => {
   const audioElement = useSignal<HTMLAudioElement>();
   const playing = useSignal(false);
 
@@ -25,7 +25,7 @@ export const Set = component$(({ map }: { map: any }) => {
   });
 
   return (
-    <div class="m-4 flex h-48 w-1/3 scale-100 transform flex-col bg-blue-300 duration-300 hover:scale-110">
+    <div class="m-4 flex h-48 w-1/3 scale-100 transform flex-col bg-blue-300 duration-300 hover:scale-110 active:bg-blue-400">
       <Link
         href={`/set/${map.SetId}`}
         class="relative line-clamp-2 h-full overflow-hidden text-ellipsis border text-center"
@@ -56,7 +56,9 @@ export const Set = component$(({ map }: { map: any }) => {
 
       <div class="flex h-14 items-center justify-around border">
         <Link
-          href={`/api/download/${map.SetId}?name=${map.Title}`}
+          href={`/api/download/${map.SetId}?name=${encodeURIComponent(
+            map.Title,
+          )}`}
           target="_blank"
           title="Download Map"
           class="hover:text-blue-600 active:text-blue-400"

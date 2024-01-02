@@ -39,7 +39,7 @@ export default component$(() => {
   });
 
   return (
-    <div class="flex h-full w-full justify-center bg-blue-100">
+    <div class="flex h-full w-full justify-center">
       <div class="mt-24 flex w-2/3 flex-col items-center bg-blue-200">
         <div class="w-full bg-blue-300">
           <div class="flex items-center">
@@ -80,8 +80,8 @@ export default component$(() => {
                   ))
                 }
               >
-                {statuses.map((status, index) => (
-                  <option key={index} value={status.value}>
+                {statuses.map((status) => (
+                  <option key={status.value} value={status.value}>
                     {status.name}
                   </option>
                 ))}
@@ -98,8 +98,8 @@ export default component$(() => {
                   ))
                 }
               >
-                {modes.map((mode, index) => (
-                  <option key={index} value={mode.value}>
+                {modes.map((mode) => (
+                  <option key={mode.value} value={mode.value}>
                     {mode.name}
                   </option>
                 ))}
@@ -112,8 +112,8 @@ export default component$(() => {
           onPending={() => <p>Loading...</p>}
           onResolved={(maps) => (
             <div class="flex flex-row flex-wrap justify-center">
-              {maps.data.map((map: any, index: number) => (
-                <Set map={map} key={index} />
+              {maps.data.map((map: any) => (
+                <Set map={map} key={map.SetId} />
               ))}
             </div>
           )}

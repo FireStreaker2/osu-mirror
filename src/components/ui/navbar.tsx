@@ -15,9 +15,9 @@ export const Navbar = component$(() => {
         </Link>
       </div>
       <div class="flex h-full w-1/3 items-center justify-around">
-        {routes.map((route, index) => (
+        {routes.map((route) => (
           <Link
-            key={index}
+            key={route.route}
             href={route.route}
             target={route.newtab ? "_blank" : ""}
             class={`${
