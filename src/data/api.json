@@ -1,0 +1,5 @@
+[
+  { "route": "/api/audio/{id}", "method": "GET" },
+  { "route": "/api/download/{id}", "method": "GET" },
+  { "route": "/api/image/{type}/{set}", "method": "GET" }
+]

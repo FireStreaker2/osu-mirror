@@ -5,6 +5,6 @@
     "name": "GitHub",
     "newtab": true
   },
-  { "route": "/about/", "name": "About" },
+  { "route": "/api/", "name": "Documentation" },
   { "route": "/support/", "name": "Support" }
 ]
