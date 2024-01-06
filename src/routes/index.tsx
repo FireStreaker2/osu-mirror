@@ -51,15 +51,16 @@ export default component$(() => {
                   class="m-4 w-full border bg-blue-500 p-1 placeholder-blue-200"
                   placeholder="Keywords"
                 />
-                <button class="absolute right-5">
+                <button class="absolute right-5" aria-label="Search">
                   <IoSearchSolid />
                 </button>
               </div>
             </form>
 
             <button
-              class="mr-8 flex w-1/5 flex-row items-center justify-center bg-blue-400 text-blue-950 hover:bg-blue-500 active:bg-blue-400"
               onClick$={() => (dropdownState.value = !dropdownState.value)}
+              class="mr-8 flex w-1/5 flex-row items-center justify-center bg-blue-400 text-blue-950 hover:bg-blue-500 active:bg-blue-400"
+              aria-label="Advanced Settings"
             >
               Advanced <IoChevronDown />
             </button>

@@ -92,6 +92,7 @@ export default component$(() => {
           </div>
           <img
             src={`/api/image/cover/${set.value.SetId}?size=2`}
+            alt={`${set.value.Title}'s Image Card`}
             class="absolute left-0 h-96 w-auto"
             width={2000}
             height={700}
@@ -121,6 +122,7 @@ export default component$(() => {
             <button
               onClick$={play}
               class="flex h-10 w-3/4 items-center justify-center bg-blue-400 text-blue-950 hover:bg-blue-500 active:bg-blue-400"
+              aria-label="Play Preview"
             >
               {playing.value ? <FaPauseSolid /> : <FaPlaySolid />}
             </button>

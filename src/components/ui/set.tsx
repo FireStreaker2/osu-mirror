@@ -33,6 +33,7 @@ export const Set = component$(({ map }) => {
         <div class="flex justify-center">
           <img
             src={`/api/image/card/${map.SetId}`}
+            alt={`${map.Title}'s Image Card`}
             class="h-20 w-auto"
             width={200}
             height={70}
@@ -46,6 +47,7 @@ export const Set = component$(({ map }) => {
       <button
         onClick$={play}
         class="flex h-10 w-full items-center justify-center border-l border-r bg-blue-400 text-blue-950 hover:bg-blue-500 active:bg-blue-400"
+        aria-label="Play Preview"
       >
         {playing.value ? <FaPauseSolid /> : <FaPlaySolid />}
       </button>
