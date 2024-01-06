@@ -1,5 +1,5 @@
 import { component$ } from "@builder.io/qwik";
-import { Link } from "@builder.io/qwik-city";
+import { type DocumentHead, Link } from "@builder.io/qwik-city";
 import { api } from "~/data";
 
 export default component$(() => {
@@ -29,3 +29,13 @@ export default component$(() => {
     </div>
   );
 });
+
+export const head: DocumentHead = {
+  title: "API Documentation | osu! mirror",
+  meta: [
+    {
+      name: "description",
+      content: "API Documentation - osu! mirror",
+    },
+  ],
+};
